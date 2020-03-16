@@ -1,6 +1,6 @@
 ﻿namespace Decomposicao
 {
-    partial class Form1
+    partial class FormPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.label1 = new System.Windows.Forms.Label();
             this.txtCorte = new System.Windows.Forms.TextBox();
             this.txtTotalPeca = new System.Windows.Forms.TextBox();
@@ -235,7 +235,7 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Peso Total Venda";
             // 
-            // Form1
+            // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -243,7 +243,7 @@
             this.ClientSize = new System.Drawing.Size(566, 179);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "FormPrincipal";
             this.Text = "Calculadora Decomposicao";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
