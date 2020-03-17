@@ -33,12 +33,21 @@ namespace Decomposicao
 
             }
 
-            pesodocorte = Convert.ToDouble(txtCorte.Text);
-            pesototaldapeca = Convert.ToDouble(txtTotalPeca.Text);
+            try
+            {
+                pesodocorte = Convert.ToDouble(txtCorte.Text);
+                pesototaldapeca = Convert.ToDouble(txtTotalPeca.Text);
 
-            porcentproduto = Math.Round(pesodocorte * 100 / pesototaldapeca, 4);
-            txtporcentagemproduto.Text = porcentproduto.ToString();
+                porcentproduto = Math.Round(pesodocorte * 100 / pesototaldapeca, 4);
+                txtporcentagemproduto.Text = porcentproduto.ToString();
+            }
 
+            catch
+            {
+                MessageBox.Show("Favor Verificar dados informados!! Letras ou simbolos não são aceitos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
 
 
             //FATOR DE CUSTO
@@ -57,10 +66,19 @@ namespace Decomposicao
                 return;
             }
 
-            fatorcusto = Math.Round(1 + ((100 - porcentproduto) / 100), 4);
-            txtfatorcusto.Text = fatorcusto.ToString();
+            try
+            {
+                fatorcusto = Math.Round(1 + ((100 - porcentproduto) / 100), 4);
+                txtfatorcusto.Text = fatorcusto.ToString();
+            }
 
+            catch
+            {
+                MessageBox.Show("Favor Verificar dados informados!! Letras ou simbolos não são aceitos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            
 
             //PORCENTAGEM VENDA
 
@@ -78,13 +96,24 @@ namespace Decomposicao
                 return;
             }
 
-            precovenda = Convert.ToDouble(txtPrecoVenda.Text);
-            precototalvenda = Convert.ToDouble(txtPrecoTotalVenda.Text);
+            try
+            {
+                precovenda = Convert.ToDouble(txtPrecoVenda.Text);
+                precototalvenda = Convert.ToDouble(txtPrecoTotalVenda.Text);
 
-            porcentvenda = Math.Round((precovenda / precototalvenda) * 100, 3);
-            txtporcentvenda.Text = porcentvenda.ToString();
+                porcentvenda = Math.Round((precovenda / precototalvenda) * 100, 3);
+                txtporcentvenda.Text = porcentvenda.ToString();
+            }
+
+            catch
+            {
+                MessageBox.Show("Favor Verificar dados informados!! Letras ou simbolos não são aceitos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
 
         }
+
 
 
 
