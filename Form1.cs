@@ -12,41 +12,83 @@ namespace Decomposicao
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            try
+           
+            //PORCENTAGEM PRODUTO
+
+            double pesodocorte, pesototaldapeca, porcentproduto, fatorcusto, precovenda, precototalvenda, porcentvenda;
+
+            if (string.IsNullOrEmpty(txtCorte.Text))
             {
-
-                double pesodocorte, pesototaldapeca, porcentproduto, fatorcusto, precovenda, precototalvenda, porcentvenda;
-
-
-                //PORCENTAGEM PRODUTO
-
-                pesodocorte = Convert.ToDouble(txtCorte.Text);
-                pesototaldapeca = Convert.ToDouble(txtTotalPeca.Text);
-
-                porcentproduto = Math.Round(pesodocorte * 100 / pesototaldapeca, 4);
-                txtporcentagemproduto.Text = porcentproduto.ToString();
-
-                //FATOR DE CUSTO
-
-                fatorcusto = Math.Round(1 + ((100 - porcentproduto) / 100), 4);
-                txtfatorcusto.Text = fatorcusto.ToString();
-
-                //PORCENTAGEM VENDA
-
-                precovenda = Convert.ToDouble(txtPrecoVenda.Text);
-                precototalvenda = Convert.ToDouble(txtPrecoTotalVenda.Text);
-
-                porcentvenda = Math.Round((precovenda / precototalvenda)*100,3);
-                txtporcentvenda.Text = porcentvenda.ToString();
+                MessageBox.Show("Campo corte é obrigatório!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCorte.Focus();
+                return;
 
             }
 
-            catch
+            if (string.IsNullOrEmpty(txtTotalPeca.Text))
             {
-                MessageBox.Show("VALORES NAO PODEM FICAR VAZIOS!!!","Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Campo Total da Peca é obrigatório!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTotalPeca.Focus();
+                return;
+
             }
 
+            pesodocorte = Convert.ToDouble(txtCorte.Text);
+            pesototaldapeca = Convert.ToDouble(txtTotalPeca.Text);
+
+            porcentproduto = Math.Round(pesodocorte * 100 / pesototaldapeca, 4);
+            txtporcentagemproduto.Text = porcentproduto.ToString();
+
+
+
+            //FATOR DE CUSTO
+
+            if (string.IsNullOrEmpty(txtCorte.Text))
+            {
+                MessageBox.Show("Campo Peso Corte é obrigatório!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCorte.Focus();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtTotalPeca.Text))
+            {
+                MessageBox.Show("Campo Peso total da peça é obrigatório!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTotalPeca.Focus();
+                return;
+            }
+
+            fatorcusto = Math.Round(1 + ((100 - porcentproduto) / 100), 4);
+            txtfatorcusto.Text = fatorcusto.ToString();
+
+
+
+            //PORCENTAGEM VENDA
+
+            if (string.IsNullOrEmpty(txtPrecoVenda.Text))
+            {
+                MessageBox.Show("Campo Preco de Venda é obrigatório!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPrecoVenda.Focus();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtPrecoTotalVenda.Text))
+            {
+                MessageBox.Show("Campo Preco Total de Venda é obrigatório!!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPrecoTotalVenda.Focus();
+                return;
+            }
+
+            precovenda = Convert.ToDouble(txtPrecoVenda.Text);
+            precototalvenda = Convert.ToDouble(txtPrecoTotalVenda.Text);
+
+            porcentvenda = Math.Round((precovenda / precototalvenda) * 100, 3);
+            txtporcentvenda.Text = porcentvenda.ToString();
 
         }
+
+
+
+
     }
 }
+
